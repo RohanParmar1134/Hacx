@@ -1,6 +1,6 @@
 import React from "react";
 import { useState,useEffect } from "react";
-import {db} from "../components/fire";
+import {db} from "./fire";
 import {collection,addDoc,Timestamp,query, orderBy, onSnapshot} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 export default function New_Reg() {
   const [formData, setFormData] = useState({

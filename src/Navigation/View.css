@@ -1,19 +1,23 @@
 .form-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: left; */
+    /* align-items: left; */
     height: 100vh;
     /* width: 100vw; */
     background-color: #f0f0f0;
+    
   }
-  
-  .form {
-    width: 70%;
+  .Title{
+    margin-top: 80px;
+  }
+  form {
+    width: 1000px;
     background-color: #f0f0f0;
     border-radius: 20px;
     padding: 40px;
     box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.1),
       -8px 20px 20px rgba(255, 255, 255, 0.5);
+      
   }
   
   .input-group {
@@ -34,6 +38,7 @@
     background-color: #f0f0f0;
     box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.1),
       inset -4px -4px 8px rgba(255, 255, 255, 0.5);
+      margin:10px;
   }
   
   textarea {
@@ -62,7 +67,7 @@
   }
   
   input[type="file"] {
-    /* display: none; */
+    display: none;
   }
   
   .file-input-label {
@@ -133,7 +138,7 @@
 }
 
 .custom-file-upload {
-    align:justify-content-center;
+    /* align:justify-content-center; */
     background-color: #f0f0f0;
     width: 5vw;
     color: #007bff;
@@ -154,4 +159,13 @@
   }
   .upload{
     justify-content:center;
+  }
+  .aadhar{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+      inset -4px -4px 8px rgba(255, 255, 255, 0.5);
   }

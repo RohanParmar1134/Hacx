@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
+import "./Login.css"
 export default function Login() {
 
     const [name, setName] = useState("");
@@ -10,7 +11,7 @@ export default function Login() {
   }
   return (
     <div>
-        <h1 className="">Database</h1>
+        <h1 className="Title">Database</h1>
         <br />
         <form action="">
           <input
