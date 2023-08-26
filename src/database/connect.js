@@ -16,7 +16,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
   },
   id:{
-      type:Date,
+      type:String,
       default: new Date().toLocaleString()
   }
 });
@@ -54,7 +54,8 @@ app.post("/register", async(req,res) => {
     await user.save()
     res.send(req.body);
   } catch (e) {
-    res.send("Something Went Wrong");
+    // console.error(e);
+    res.send(e);
   }
 });
 app.listen(8000);
