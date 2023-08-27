@@ -13,7 +13,7 @@ const ChatGPTIntegration = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: 'Bearer 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', // Replace with your actual API key
+          Authorization: 'Bearer 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', // Replace with your actual API key
         },
         body: JSON.stringify({
           model: 'gpt-3.5-turbo',
