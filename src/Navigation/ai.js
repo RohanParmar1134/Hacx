@@ -7,12 +7,13 @@ const ChatGPTIntegration = () => {
 
   const handleSendMessage = async (e) => {
     e.preventDefault();
+    outputResponse("Waiting..")
     try {
       const response = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: 'Bearer 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', // Replace with your actual API key
+          Authorization: 'Bearer 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', // Replace with your actual API key
         },
         body: JSON.stringify({
           model: 'gpt-3.5-turbo',

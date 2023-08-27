@@ -35,7 +35,7 @@ export default function View() {
             className='aadhar'
             type="text"
             placeholder="Aadhar Card Number"
-            value={name}
+            value="xxxx xxxx xxxx 1234"
             onChange={(e) => setName(e.target.value)}
           />
          
@@ -45,7 +45,7 @@ export default function View() {
         <PDFViewer/>
         {/* <ChatbotApp/> */}
         {/* <ChattyApp/> */}
-        <ChatGPTIntegration/>
+        {/* <ChatGPTIntegration/> */}
         </form>
       </div>
    

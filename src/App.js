@@ -15,7 +15,7 @@ function App() {
         <nav>
         <Link to ='/'><button  className="btn" >Home</button> </Link>
         <Link to="/ChatGPT"> <button className="btn">AI</button></Link>
-        <Link to="/Blog"> <button className="btn"> Blog</button></Link>
+        <Link to="/Blog"> <button className="btn">Community</button></Link>
         <Link to="/Upload"> <button className="btn"> Upload</button></Link>
         <Link to="/View"> <button className="btn"> View</button></Link>
         <Link to="/New_reg"> <button className="btn">New Registration</button> </Link>
