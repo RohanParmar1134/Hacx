@@ -1,8 +1,10 @@
 import React from "react";
 import { useState,useEffect } from "react";
 import {db} from "./fire";
-import {collection,addDoc,Timestamp,query, orderBy, onSnapshot} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+import {collection,addDoc,Timestamp,query, orderBy, onSnapshot, where, getDocs,get} from "https://cdnjs.cloudflare.com/ajax/libs/firebase/10.3.0/firebase-firestore.min.js";
+const firebase = require("https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js")
 export default function New_Reg() {
+
   const [formData, setFormData] = useState({
     name: "",
     age: "",
@@ -15,6 +17,22 @@ export default function New_Reg() {
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     try {
+
+  //       const collectionRef = firebase.collection('users');
+  //       const querySnapshot = await collectionRef.where('anum', '==', formData.aadharNumber).get();
+  
+  //       if (!querySnapshot.empty) {
+  //         // Data already exists, show alert
+  //         alert('Data already exists in the collection.');
+  //       } else {
+  //         // Data doesn't exist, do something else
+  //         console.log('Data does not exist in the collection.');
+  //       }
+     
+  //       // console.error('Error checking data:', error);
+      
+
+
       await addDoc(collection(db, "users"), {
         name: formData.name,
         age: formData.age,
@@ -23,19 +41,26 @@ export default function New_Reg() {
         aadharNumber: formData.aadharNumber,
         created: Timestamp.now(),
       })
+      alert("Data Entered Successfully")
     } catch (err) {
       alert(err);
     }
+
+//   const citiesRef = db.collection('cities');
+// const snapshot = await citiesRef.get();
+// snapshot.forEach(doc => {
+//   console.log(doc.id, '=>', doc.data());
+// });
+
+  // const q = query(collection(db, 'users'),where ("anum", "==", formData.aadharNumber))
+    // const querySnapshot =  getDocs(q);
+    // console.log(q);
+  //   querySnapshot.forEach((doc) => {
+  //    console.log(doc);
+  // });
   };
-  useEffect(() => {
-    const q = query(collection(db, 'users'))
-    onSnapshot(q, (querySnapshot) => {
-      setTasks(querySnapshot.docs.map(doc => ({
-        id: doc.id,
-        data: doc.data()
-      })))
-    })
-  },[])
+  
+    
 
 
   const handleInputChange = (event) => {

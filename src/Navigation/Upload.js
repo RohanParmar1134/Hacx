@@ -22,26 +22,17 @@ function FileUpload() {
 
 const [progresspercent, setProgresspercent] = useState(0);
 const [pdf,setPdf] = useState("")
+const [date,setDate] = useState("")
 const [formData, setFormData] = useState({
   
   aadharNumber: '',
   prescription: '',
   description: '',
+  date:""
 });
-
+const regex = "^[0-9]";
 const handleInputChange = (event) => {
   const { name, value } = event.target;
-  // if (event.target.name==="aadharNumber"){
-  //   const regex = "^[0-9]";
-  //   if(name.length===12 && regex.test(name))
-  //   {
-  //   event.preventDefault()
-  //   }
-  //   else
-  //   {
-  //       alert("enter valid aadhar number")
-  //   }
-  // }
   setFormData((prevData) => ({
     ...prevData,
     [name]: value,
@@ -49,19 +40,40 @@ const handleInputChange = (event) => {
 };
 
 
-const handleSubmit =()=>{
+const handleSubmit =async(e)=>{
+  e.preventDefault();
     console.log("upload");
+    if (formData.aadharNumber.length===12 && regex.test(formData.aadharNumber)){
+    
+    }
+    else{
+      alert("invalid aadharcard number")
+    }
     if (!pdf) return;
     console.log("u-----");
 
-    const storageRef = ref(storage, `files/${pdf.name}`);
+    const storageRef = ref(storage, `files/${formData.aadharNumber+formData.date+pdf.name}`);
     const uploadTask = uploadBytesResumable(storageRef, pdf);
 
     uploadTask.on("state_changed",
-      (snapshot) => {
+      async(snapshot) => {
         const progress =
           Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
         setProgresspercent(progress);
+        try{
+
+          await addDoc(collection(db, "users"), {
+            date: formData.age,
+            description: formData.dob,
+            prescription: formData.email,
+            aadharNumber: formData.aadharNumber,
+            created: Timestamp.now(),
+            
+          })
+          alert("Data Entered Successfully")
+        }catch(e){
+          alert(e)
+        }
       },
       (error) => {
         alert(error);
@@ -73,7 +85,7 @@ const handleSubmit =()=>{
 
      
       <div>
-        <h1 className="text-center Title">Database</h1>
+        <h1 className="text-center Title">Add Patient Data</h1>
         <br />
         <form action="">
         <div className="input-group">
@@ -106,12 +118,12 @@ const handleSubmit =()=>{
           />
         </div>
           <div>
-            <input style={{zIndex:1}} type="date" />
+            <input  type="date" onChange={(e)=>{setDate(e.target.value)}}/>
           </div>
-          <h1>{progresspercent}</h1>
+          {/* <h1>{progresspercent}</h1> */}
           <div>
           <input type="file" style={{"display":"inline"}} onChange={(e)=>{setPdf(e.target.files[0])}}/>
-          <button type="submit" onClick={handleSubmit()}>
+          <button type="submit" onClick={handleSubmit}>
             submit
           </button>
           </div>

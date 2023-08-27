@@ -1,0 +1,11 @@
+.div{
+    display: flex;
+    /* justify-content: left; */
+    /* align-items: left; */
+    height: 80vh;
+    width: 40vw ;
+    background-color: #f4dada;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.1)
+}

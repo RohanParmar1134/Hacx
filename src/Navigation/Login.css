@@ -1,6 +1,9 @@
 .Title{
     margin-top: 80px;
 }
+body{
+    background-color: rgb(98, 224, 224);
+}
 /* form{
     margin-left: 15vw;
 } */

@@ -1,6 +1,12 @@
 import React from 'react'
 import { useState } from 'react';
+import ChattyApp from './ai';
+import ChatGPTIntegration from './ai';
+import ChatbotApp from './ai';
+import PDFViewer from './pdf_viewer';
+// import test from "re"
 import "./View.css"
+import Viewer from './viewer';
 export default function View() {
 
     const [name, setName] = useState("");
@@ -11,6 +17,9 @@ export default function View() {
     if(name.length===12 && regex.test(name))
     {
     e.preventDefault()
+    // return (
+    //   <Viewer/>
+    // )
     }
     else
     {
@@ -33,7 +42,10 @@ export default function View() {
           <button type="submit"  align="center" onClick={handleOnSubmit}>
             submit
           </button>
-        
+        <PDFViewer/>
+        {/* <ChatbotApp/> */}
+        {/* <ChattyApp/> */}
+        <ChatGPTIntegration/>
         </form>
       </div>
    
